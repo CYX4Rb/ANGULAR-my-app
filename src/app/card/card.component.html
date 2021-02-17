@@ -1,4 +1,46 @@
 <div class="card">
-    <h2>{{ title }}</h2>
-    <p>{{ text }}</p>
+    <h2 [ngStyle]="{
+        color: card.title.length < 10 ? 'red' : 'green',
+        fontWeight: card.title.length < 10 ? 'bold' : 'normal'
+    }">{{ card.title }}</h2>
+
+    <!-- <p class="text" [ngClass]="{
+        red: textColor === 'red',
+        blue: textColor === 'blue',
+        green: textColor === 'green'
+    }">{{ text }}</p> -->
+
+
+    <p class="text" 
+        [class.blue]="textColor === 'blue'"
+        [class.green]="textColor === 'green'"
+        [class.red]="textColor === 'red'"
+    >{{ card.text }}</p> 
+
+    <p>{{ array }}</p>
+
+    <div class="bttns">
+        <button (click)="textColor='red'">red</button>
+        <button (click)="textColor='blue'">blue</button>
+        <button (click)="textColor='green'">green</button>
+    </div>
+
+    <div>
+        <img [src]="imgUrl" alt="NaN">
+        <br>
+        <button [disabled] = 'disabled'>button</button>
+    </div>
+
+    <div class="bttns">
+        <button (click) = 'changeTitle()'>change title</button>
+        <button (click) = "card.title = 'inline title'">change title inline</button>
+    </div>
+
+    <!-- <div>
+        <input type="card.text" (input) = 'inputHandler(myInput.value)' [value] = 'title' #myInput>
+    </div> -->
+
+    <div>
+        <input type="card.text" [(ngModel)]="card.title" (ngModelChange) = 'changeHandler()'>
+    </div>
 </div>
