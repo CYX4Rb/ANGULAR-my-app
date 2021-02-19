@@ -1,0 +1,26 @@
+.card {
+    padding: .5rem 1rem;
+    border: 1px dashed gray;
+    h2 {
+        color: blue;
+    }
+    img {
+        width: 50px;
+    }
+    .bttns {
+        margin-bottom: 10px;
+    }
+    .text {
+        font-size: large;
+        &.red {
+            color: red;
+        }
+        &.blue {
+            color: blue;
+        }
+        &.green {
+            color: green;
+        }
+    }
+}
+
